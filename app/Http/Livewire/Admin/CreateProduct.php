@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Subcategory;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -11,7 +12,7 @@ class CreateProduct extends Component
 {
     public $categories, $subcategories=[];
     public $category_id="",$subcategory_id="";
-    public $name,$slug,$description,$price,$quatity ;
+    public $name,$slug,$description,$price,$quantity ;
 
     protected $rules=[
         'category_id' => 'required',
@@ -19,7 +20,7 @@ class CreateProduct extends Component
         'name' => 'required',
         'slug' => 'required|unique:products',
         'description' => 'required',
-        'precio' => 'required'
+        'price' => 'required'
     ];
 
     public function mount(){
@@ -40,6 +41,32 @@ class CreateProduct extends Component
     
     public function getSubcategoryProperty(){
         return Subcategory::find($this->subcategory_id);
+    }
+    public function save(){
+
+        $rules=$this->rules;
+
+        if ($this->subcategory_id) {
+            if (!$this->subcategory->color && !$this->subcategory->size) {
+                $rules['quantity']='required';
+            }
+        }
+        $this->validate($rules);
+
+        $product = new Product();
+
+        $product->name= $this->name;
+        $product->slug=$this->slug;
+        $product->description=$this->description;
+        $product->subcategory_id=$this->subcategory_id;
+        $product->subcategory_id="OhDiosas";
+        $product->price=$this->price;
+        if ($this->subcategory_id) {
+            if (!$this->subcategory->color && !$this->subcategory->size) {
+                $product->quantity=$this->quantity;
+            }
+        }
+
     }
     public function render()
     {

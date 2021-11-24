@@ -14,6 +14,7 @@
                 @endforeach
 
             </select>
+            <x-jet-input-error for="category_id"/>
         </div>
 
         <div>
@@ -28,6 +29,7 @@
                 @endforeach
 
             </select>
+            <x-jet-input-error for="subcategory_id"/>
         </div>
     </div>
 
@@ -35,39 +37,46 @@
     <div class="mb-4">
         <x-jet-label value="Nombre"/>
         <x-jet-input type="text" class="w-full" wire:model="name" placeholder="Ingrese nombre del producto"/>
+        <x-jet-input-error for="name"/>
     </div>
 
     {{-- slug producto --}}
     <div class="mb-4">
         <x-jet-label value="Slug"/>
         <x-jet-input type="text" class="w-full bg-gray-100" disabled wire:model="slug" placeholder="Ingrese slug del producto"/>
+        <x-jet-input-error for="slug"/>
     </div>
 
     {{-- descripcion --}}
     
-    <div class="mb-4" wire:ignore>
-        <x-jet-label value="Descripcion"/>
-        <textarea class="w-full form-control" rows="6"
-        wire:model="description"
-        x-data x-init="ClassicEditor
-        .create($refs.miEditor)
-        .then(function(editor){
-            editor.model.document.on('change:data',()=>{
-            @this.set('description',editor.getData())
-        })
-        })
-        .catch( error => {
-            console.error( error );
-        } );"
-        x-ref="miEditor">
+    <div class="mb-4" >
+        <div  wire:ignore>
+            <x-jet-label value="Descripcion"/>
+            <textarea class="w-full form-control" rows="6"
+            wire:model="description"
+            x-data x-init="ClassicEditor
+            .create($refs.miEditor)
+            .then(function(editor){
+                editor.model.document.on('change:data',()=>{
+                @this.set('description',editor.getData())
+            })
+            })
+            .catch( error => {
+                console.error( error );
+            } );"
+            x-ref="miEditor">
 
-        </textarea>
+            </textarea>
+        </div>
+        <x-jet-input-error for="description"/>
+
     </div>
 
     <div class="grid grid-cols-2 mb-4 gap-6">
         <div class="w-full">
             <x-jet-label value="Precio" />
              <x-jet-input type="number" wire:model="price" step=".01"/>{{-- step define el ingreso de decimales --}}
+             <x-jet-input-error for="price"/>
         </div>
 
         <div>
@@ -76,6 +85,7 @@
             <div class="w-full">
                 <x-jet-label value="Cantidad" />
                 <x-jet-input type="number" wire:model="quantity"/>
+                <x-jet-input-error for="quantity"/>
             </div>
             @endif
          @endif
@@ -84,7 +94,11 @@
     </div>
 
    <div class="flex">
-    <x-danger-enlace class="ml-auto">
+    <x-danger-enlace 
+    wire:loading.attr="disable"
+    wire:target="save"
+    wire:click="save"
+    class="ml-auto cursor-pointer">
         Crear Producto
     </x-danger-enlace>
    </div>
