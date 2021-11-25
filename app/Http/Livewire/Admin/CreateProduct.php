@@ -8,6 +8,8 @@ use App\Models\Subcategory;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
+use function PHPUnit\Framework\returnSelf;
+
 class CreateProduct extends Component
 {
     public $categories, $subcategories=[];
@@ -38,7 +40,7 @@ class CreateProduct extends Component
         $this->slug=Str::slug($value);
     }
 
-    
+    /* propiedad computada trae el objeto subcategory dependiendo de lo que se definio en la variable subcategory_id */
     public function getSubcategoryProperty(){
         return Subcategory::find($this->subcategory_id);
     }
@@ -59,14 +61,16 @@ class CreateProduct extends Component
         $product->slug=$this->slug;
         $product->description=$this->description;
         $product->subcategory_id=$this->subcategory_id;
-        $product->subcategory_id="OhDiosas";
+        $product->brand_id='15';
         $product->price=$this->price;
         if ($this->subcategory_id) {
             if (!$this->subcategory->color && !$this->subcategory->size) {
                 $product->quantity=$this->quantity;
             }
         }
+        $product->save();
 
+        return redirect()->route('admin.products.edit',$product);
     }
     public function render()
     {

@@ -40,7 +40,7 @@
                             <span class="pb-1 md:pb-0 font-semibold text-xs md:text-base text-white md:text-white block md:inline-block">Oh! Diosas</span>
                         </a>
                     <hr>
-                    <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2 text-center md:text-left flex-wrap place-items-center  ">
+                    <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2  md:text-left flex-wrap   ">
                         
                         <li class="mr-3 flex-1">
                             <div @click.away="open = false" class="relative" x-data="{ open: false }">
