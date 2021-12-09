@@ -13,11 +13,12 @@
 
          
           @foreach ($products as $product)
-
+          
           {{-- {{ $loop->last ? '' : 'mr-4'}} //cada vez que se hace una bucle se cre automaticamente la variable lopp//
           con loop podemos saber en que iteracion se encuentra usando el metodo las ->buscamos la ultima//
           con la interrocaion es como si se tratase de un if el cual pregunta si es verdad y luego va lo que se hace//
           los : es como un else y luego la accion a realizar --}}
+
               <li class="bg-white rounded-lg shadow {{ $loop->last ? '' : 'sm:mr-4'}}">
                 <article>
                   <figure>

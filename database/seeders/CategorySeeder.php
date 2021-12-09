@@ -19,7 +19,7 @@ class CategorySeeder extends Seeder
     {
         //
         $categories=[
-            [
+          /*   [
                 'name'=>'Celulares y Tablets',
                 'slug'=> Str::slug('Celulares y Tablets'),
                 'icon'=>'<i class="fas fa-mobile-alt"></i>'
@@ -45,7 +45,7 @@ class CategorySeeder extends Seeder
                 'slug'=> Str::slug('Computacion'),
                 'icon'=>'<i class="fas fa-laptop"></i>'
 
-            ],
+            ], */
 
             [
                 'name'=>'Moda',

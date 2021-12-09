@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 class EditProduct extends Component
 {
     public $product,$categories,$subcategories;
-    public $category_id;
+    public $category_id,$slug;
 
     protected $rules=[
         'product.category_id' => 'required',
@@ -47,7 +47,7 @@ class EditProduct extends Component
     public function save(){
         $rules=$this->rules;
 
-        $rules['product.slug']= 'required|unique:products,slug'.$this->product->id;
+        $rules['product.slug']= 'required|unique:products,slug,'. $this->product->id;
         if ($this->product->subcategory_id) {
             if (!$this->subcategory->color && !$this->subcategory->size) {
                 $rules['product.quantity']='required|numeric';
@@ -55,9 +55,12 @@ class EditProduct extends Component
         }
 
         $this->validate($rules);
+      
         $this->product->slug= $this->slug;
-
+    
         $this->product->save();
+    
+        $this->emit("saved");
     }
     public function render()
     {

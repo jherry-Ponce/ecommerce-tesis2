@@ -3,7 +3,7 @@
     <x-jet-authentication-card>
         <x-slot name="logo">
            <a href="/">
-            <img src="https://scontent.ftru2-2.fna.fbcdn.net/v/t1.6435-9/104428971_560641627938373_583496328819379999_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=09cbfe&_nc_eui2=AeGRCHNS74VxjUMzlwDpeBIFuEPnUMc7boO4Q-dQxztug4j0c59hcFdpQknrw73vmidUyU3VBTpOJ-osboKSNGpZ&_nc_ohc=e0aAwk77eXwAX_Z0-dL&_nc_ht=scontent.ftru2-2.fna&oh=7fc619fa2ba61dc2b43ca82b0afbf143&oe=60DB00D8"
+            <img src="https://scontent.ftru2-1.fna.fbcdn.net/v/t1.6435-9/151832684_885168635637235_2906067587046004896_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeHKXI72YRilsGFhOABatbijhnDqHoWziS6GcOoehbOJLuCQRQecDh82nR4ZNr4Jm3G74YnTn7eU4n7QsP0obnQN&_nc_ohc=LzLeNZ8mV_UAX9pl0fY&_nc_ht=scontent.ftru2-1.fna&oh=afd381a334ab238ca9f64b59912a1b07&oe=61C68D8B"
             class="block max-h-32 w-auto ">
            </a>
         </x-slot>

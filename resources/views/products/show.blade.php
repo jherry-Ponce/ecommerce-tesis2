@@ -7,7 +7,7 @@
                     <ul class="slides">
                      
                         @foreach ($product->images as $image)
-                            <li data-thumb="/storage/{{$image->url}}">
+                            <li class="rounded-t h-96 w-full object-cover object-center" data-thumb="/storage/{{$image->url}}">
                                 <img src="/storage/{{$image->url}}" />
                             </li>
                         @endforeach

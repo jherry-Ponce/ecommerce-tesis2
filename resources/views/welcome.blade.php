@@ -1,21 +1,26 @@
 <x-app-layout >
 
-    
+        <x-slider/>
+
+
         <div    class="container py-8">
             @foreach ($categories as $category) 
-         
-            <div class=" mb-6">
-                <div class="flex items-center mb-2">
-                    <h1 class="text-lg uppercase font-semibold text-gray-700">
-                        {{ $category->name }}
-                    </h1>
+                @if($category != null)
+                    
+                    <div class=" mb-6">
+                        <div class="flex items-center mb-2">
+                            <h1 class="text-lg uppercase font-semibold text-gray-700">
+                                {{ $category->name }}
+                            </h1>
 
-                    <a href="{{route('categories.show',$category)}}" class="text-blue-500 hover:text-blue-400 hover:underline ml-2 font-semibold">Ver más</a>
-                </div>
+                            <a href="{{route('categories.show',$category)}}" class="text-blue-500 hover:text-blue-400 hover:underline ml-2 font-semibold">Ver más</a>
+                        </div>
 
-                {{-- llama al componente de clase y le envia como dato category este lo recibira en el controlador de la clase --}}
-                @livewire('category-products', ['category' => $category])
-            </div>
+                        {{-- llama al componente de clase y le envia como dato category este lo recibira en el controlador de la clase --}}
+                        @livewire('category-products', ['category' => $category])
+                    </div>
+                @endif
+               
 
             @endforeach
         </div>

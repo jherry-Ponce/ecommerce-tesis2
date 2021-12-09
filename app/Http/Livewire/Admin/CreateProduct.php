@@ -61,7 +61,7 @@ class CreateProduct extends Component
         $product->slug=$this->slug;
         $product->description=$this->description;
         $product->subcategory_id=$this->subcategory_id;
-        $product->brand_id='15';
+        $product->brand_id='1';
         $product->price=$this->price;
         if ($this->subcategory_id) {
             if (!$this->subcategory->color && !$this->subcategory->size) {

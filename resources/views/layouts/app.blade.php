@@ -27,7 +27,8 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       {{-- flexslider --}}
       <script src="{{asset('vendor/Flexslider/jquery.flexslider-min.js')}}"></script>
-
+      {{-- ajax --}}
+      <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
  </head>
 
  <body class="font-sans antialiased">

@@ -95,7 +95,7 @@
 
    <div class="flex">
     <x-danger-enlace 
-    wire:loading.attr="disable"
+    wire:loading.attr="disabled"
     wire:target="save"
     wire:click="save"
     class="ml-auto cursor-pointer">

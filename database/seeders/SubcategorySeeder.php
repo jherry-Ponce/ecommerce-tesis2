@@ -20,7 +20,7 @@ class SubcategorySeeder extends Seeder
 
         $subcategories = [
             //celularesy tablets
-            [
+     /*        [
                 'category_id' => 1,
                 'name' => 'Celulares y Smartphones',
                 'slug' => Str::slug('Celulares y Smartphones'),
@@ -128,35 +128,35 @@ class SubcategorySeeder extends Seeder
                 'slug' => Str::slug('Accesorio de Computadoras'),
 
             ],
-
+ */
             //moda
             [
-                'category_id' => 5,
-                'name' => 'Mujeres',
-                'slug' => Str::slug('Mujeres'),
+                'category_id' => 1,
+                'name' => 'Bikinis',
+                'slug' => Str::slug('Bikinis'),
                 'color' => true,
                 'size'=> true,
             ],
 
             [
-                'category_id' => 5,
-                'name' => 'Hombres',
-                'slug' => Str::slug('Hombres'),
+                'category_id' => 1,
+                'name' => 'Chompas',
+                'slug' => Str::slug('Chompas'),
                 'color' => true,
                 'size'=> true,
             ],
 
             [
-                'category_id' => 5,
-                'name' => 'Lentes',
-                'slug' => Str::slug('Lentes'),
+                'category_id' => 1,
+                'name' => 'Accesorios',
+                'slug' => Str::slug('Accesorios'),
 
             ],
 
             [
-                'category_id' => 5,
+                'category_id' => 1,
                 'name' => 'Relojes',
-                'slug' => Str::slug('Relojes'),
+                'slug' => Str::slug('Chompas'),
 
             ],
         ];

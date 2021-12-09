@@ -34,7 +34,7 @@ Para darle funcionalidad al boton de categorias se usara javascript una de sus l
 
         {{-- logo de la pagina --}}
         <a href="/" class="mx-6">
-            <img src="https://scontent.ftru2-1.fna.fbcdn.net/v/t1.6435-9/151832684_885168635637235_2906067587046004896_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeHKXI72YRilsGFhOABatbijhnDqHoWziS6GcOoehbOJLuCQRQecDh82nR4ZNr4Jm3G74YnTn7eU4n7QsP0obnQN&_nc_ohc=cvIQZ2QtHo0AX-a6Ava&_nc_ht=scontent.ftru2-1.fna&oh=2407ed860fa641fe15cd3217acee2e38&oe=619F008B"
+            <img src="https://scontent.ftru2-1.fna.fbcdn.net/v/t1.6435-9/151832684_885168635637235_2906067587046004896_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeHKXI72YRilsGFhOABatbijhnDqHoWziS6GcOoehbOJLuCQRQecDh82nR4ZNr4Jm3G74YnTn7eU4n7QsP0obnQN&_nc_ohc=LzLeNZ8mV_UAX9pl0fY&_nc_ht=scontent.ftru2-1.fna&oh=afd381a334ab238ca9f64b59912a1b07&oe=61C68D8B"
                 class="block max-h-14 w-auto">
         </a>
 
