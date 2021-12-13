@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\PanelAdmin;
 use App\Http\Livewire\Admin\ShowProducts;
 use App\Http\Livewire\Admin\CreateProduct;
-use App\Http\Livewire\Admin\ShowCategories;
+use App\Http\Livewire\Admin\users\RolesComponent;
 use App\Http\Livewire\Admin\EditProduct;
 use App\Http\Livewire\Admin\Provedor\CreateProveedor;
 use App\Http\Livewire\Admin\Provedor\ShowProveedor;
@@ -20,3 +20,4 @@ Route::get('categories/create', CreateCategory::class)->name('admin.categories.c
 Route::get('/slider', CreateSlider::class)->name('slider.index');
 Route::get('/proveedores/create', CreateProveedor::class)->name('admin.provedor.create');
 Route::get('/proveedores', ShowProveedor::class)->name('admin.provedor.show');
+Route::get('Rol',RolesComponent::class)->name('admin.rol');
