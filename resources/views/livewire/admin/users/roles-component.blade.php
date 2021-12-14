@@ -9,17 +9,17 @@
     </div>
 
     <div class=" container  my-4">
-            <table class="min-w-full border-collapse block md:table">
+            <table class="min-w-full border-collapse block md:table shadow-xl">
                 <div class="px-6 py-4 ">
-                   {{--  <x-jet-input  type="text" wire:model="search" class="w-full bg-gray-100" placeholder="Ingrese el producto a buscar"/> --}}
+                    <x-jet-input  type="text" {{-- wire:model="search" --}} class="w-full bg-gray-100" placeholder="Ingrese el producto a buscar"/> 
                 </div>
              
                     <thead class="block md:table-header-group border">
                         <tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
                             
-                            <th class="bg-gray-400 p-2 text-gray-700 font-bold text-center block md:table-cell">Id</th>
-                            <th class="bg-gray-400 p-2 text-gray-700 font-bold  text-center block md:table-cell">Rol</th>
-                            <th class="bg-gray-400 p-2 text-gray-700 font-bold  text-center block md:table-cell">Opciones</th>
+                            <th class="bg-gray-100 p-2 text-gray-700 font-bold text-center block md:table-cell">Id</th>
+                            <th class="bg-gray-100 p-2 text-gray-700 font-bold  text-center block md:table-cell">Rol</th>
+                            <th class="bg-gray-100 p-2 text-gray-700 font-bold  text-center block md:table-cell">Opciones</th>
                         </tr>
                     </thead>
                     <tbody class="block md:table-row-group border">

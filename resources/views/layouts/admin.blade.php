@@ -133,7 +133,7 @@
                             </a>
                         </li>
                         <li class="mr-3 flex-1">
-                            <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white ">
+                            <a href="{{route('admin.users')}}" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white ">
                                 <i class="fas fa-user pr-0 md:pr-3 "></i><span class="pb-1 md:pb-0 text-xs font-semibold md:text-base text-white md:text-white block md:inline-block">Usuarios</span>
                             </a>
                         </li>

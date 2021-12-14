@@ -29,5 +29,11 @@ class UserSeeder extends Seeder
             'email'=>'jherry_libra23@hotmail.com',
             'password'=>bcrypt('75959881') 
         ])->assignRole('admin');
+
+        User::create([
+            'name'=>'Diana Orozco Graos',
+            'email'=>'lissi_2607@hotmail.com',
+            'password'=>bcrypt('75959881') 
+        ])->assignRole('admin');
     }
 }
