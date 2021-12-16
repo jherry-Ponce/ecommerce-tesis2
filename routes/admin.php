@@ -7,6 +7,8 @@ use App\Http\Livewire\Admin\ShowProducts;
 use App\Http\Livewire\Admin\CreateProduct;
 use App\Http\Livewire\Admin\users\RolesComponent;
 use App\Http\Livewire\Admin\EditProduct;
+use App\Http\Livewire\Admin\Orders\CreateOrders;
+use App\Http\Livewire\Admin\Orders\ShowOrders;
 use App\Http\Livewire\Admin\Provedor\CreateProveedor;
 use App\Http\Livewire\Admin\Provedor\ShowProveedor;
 use App\Http\Livewire\Admin\Slider\CreateSlider;
@@ -22,3 +24,5 @@ Route::get('/proveedores/create', CreateProveedor::class)->name('admin.provedor.
 Route::get('/proveedores', ShowProveedor::class)->name('admin.provedor.show');
 Route::get('Rol',RolesComponent::class)->name('admin.rol');
 Route::get('Users',UserComponent::class)->name('admin.users');
+Route::get('Orders/create',CreateOrders::class)->name('admin.ordercreate');
+Route::get('Orders',ShowOrders::class)->name('admin.ordershow');

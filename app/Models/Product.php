@@ -42,4 +42,11 @@ class Product extends Model
       public function getRouteKeyName(){
         return 'slug';
     }
+
+    //relacion muchos a muchos 
+    public function pedidos(){
+        return $this->belongsToMany(Pedido::class);
+    }
+
+
 }
