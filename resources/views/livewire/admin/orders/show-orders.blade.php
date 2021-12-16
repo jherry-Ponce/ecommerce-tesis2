@@ -50,16 +50,19 @@
                                     </td>
 
                                     <td class="py-3 px-6 text-center">
-                                       {{--  @switch($product->status)
+                                       @switch($orden->status)
+                                            @case(0)
+                                                <span wire:click="status({{$orden->id}})" class="bg-yellow-400  font-semibold text-white py-1 px-3 rounded-full text-xs">Proforma</span>
+                                                @break
                                             @case(1)
-                                                <span class="bg-red-200 font-semibold text-white py-1 px-3 rounded-full text-xs">Borrador</span>
+                                                <span wire:click="status({{$orden->id}})" class=" font-semibold bg-red-400 text-white py-1 px-3 rounded-full text-xs">Cancelado</span>
                                                 @break
                                             @case(2)
-                                                <span class="bg-green-400 font-semibold text-white py-1 px-3 rounded-full text-xs">Publicado</span>
+                                                <span wire:click="status({{$orden->id}})" class="bg-green-400 font-semibold text-white py-1 px-3 rounded-full text-xs">Aprobado</span>
                                                 @break
                                             @default
                                                 
-                                        @endswitch --}}
+                                        @endswitch 
                                     
                                     </td>
 

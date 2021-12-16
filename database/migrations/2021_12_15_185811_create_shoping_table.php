@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Pedido;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,6 +20,7 @@ class CreateShopingTable extends Migration
             $table->foreign('cod')->references('id')->on('proveedors');
             $table->unsignedBigInteger('impuesto');
             $table->unsignedDecimal('total');
+            $table->enum('status',[Pedido::Proforma,Pedido::Cancelado,Pedido::Aprobado])->default(Pedido::Proforma);
             $table->timestamps();
         });
     }

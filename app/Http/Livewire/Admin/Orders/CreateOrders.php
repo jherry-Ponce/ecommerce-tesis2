@@ -51,6 +51,7 @@ class CreateOrders extends Component
             );
             $j=$j+1;
       }  
+        return redirect()->route('admin.ordershow');
        
     }
     

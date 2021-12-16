@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedido extends Model
 {
+    const Proforma=0;
+    const Cancelado=1;
+    const Aprobado=2;
     use HasFactory;
     protected $guarded = ['id','created_at','updated_at'];
     
