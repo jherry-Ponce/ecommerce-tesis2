@@ -18,6 +18,7 @@ class CreateShopingTable extends Migration
             $table->unsignedBigInteger('cod');
             $table->foreign('cod')->references('id')->on('proveedors');
             $table->unsignedBigInteger('impuesto');
+            $table->unsignedDecimal('total');
             $table->timestamps();
         });
     }

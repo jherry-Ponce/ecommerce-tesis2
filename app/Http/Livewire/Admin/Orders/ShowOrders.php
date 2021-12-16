@@ -2,12 +2,16 @@
 
 namespace App\Http\Livewire\Admin\Orders;
 
+use App\Models\Pedido;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class ShowOrders extends Component
 {
     public function render()
     {
-        return view('livewire.admin.orders.show-orders')->layout('layouts.admin');
+        
+        $ordenes=Pedido::all();
+        return view('livewire.admin.orders.show-orders',compact('ordenes'))->layout('layouts.admin');
     }
 }

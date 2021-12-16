@@ -16,36 +16,36 @@
                 <div class="px-6 py-4 ">
                     <x-jet-input  type="text" {{-- wire:model="search" --}} class="w-full bg-gray-100" placeholder="Ingrese el pedido a buscar"/>
                 </div>
-               {{--  @if ($products->count()) --}}
+              @if ($ordenes->count()) 
                                         
                      <table class="w-1/4 md:w-full table-auto">
                         <thead>
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                                <th class="py-3 px-6 text-left">id</th>
-                                <th class="py-3 px-6 text-left">Fecha</th>
-                                <th class="py-3 px-6 text-left">Total</th>                               
+                                <th class="py-3 px-6 text-center">id</th>
+                                <th class="py-3 px-6 text-center">Fecha</th>
+                                <th class="py-3 px-6 text-center">Total</th>                               
                                 <th class="py-3 px-6 text-center">Estado</th>
                                 <th class="py-3 px-6 text-center">Opciones</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 text-sm font-light">
-                            {{-- @foreach ($products as $product)  --}}         
+                            @foreach ($ordenes as $orden)          
 
                                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                                     <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <span class="font-medium">{{-- {{Str::limit($product->name, 20)}} --}}</span>
+                                        <div class="flex items-center justify-center">
+                                            <span class="font-medium"> {{$orden->id}} </span>
                                         </div>
                                     </td>
                                     <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">                 
-                                         <span>{{-- {{$product->subcategory->category->name}} --}}</span>
+                                        <div class="flex items-center justify-center">                 
+                                         <span> {{$orden->created_at}} </span>
                                         </div>
                                     </td>
 
                                     <td class="py-3 px-6 text-center">
                                         <div class="flex items-center justify-center">
-                                        S/.{{-- {{$product->price}} --}}
+                                        S/.{{$orden->total}}
                                         </div>
                                     </td>
 
@@ -87,15 +87,15 @@
                                     </td>
                                 </tr>
 
-                       {{--  @endforeach --}}
+                       @endforeach 
                         </tbody>
                     </table> 
 
-            {{--     @else --}}
+               @else 
                     <div class="py-6 px-4">
                         No se encuentran datos coincidentes
                     </div>
-            {{--     @endif --}}
+              @endif
 
                 {{-- @if ($products->hasPages()) --}}
                     <div class="px-6 py-4  ">

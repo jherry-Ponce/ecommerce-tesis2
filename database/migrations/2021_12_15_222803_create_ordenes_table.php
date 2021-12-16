@@ -14,8 +14,8 @@ class CreateOrdenesTable extends Migration
     public function up()
     {
         Schema::create('ordenes', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('codpedidos')->unique();
+            $table->unsignedBigInteger('id');
+            $table->unsignedBigInteger('codpedidos');
             $table->foreign('codpedidos')->references('id')->on('pedidos');
 
             $table->unsignedBigInteger('codproducts');
