@@ -31,7 +31,9 @@
       </div>
         
       <div class=" flex-1 ml-4  ">
-        <x-button-dinamic color='blue' class="w-full"> 
+        <x-button-dinamic color='blue' class="w-full" wire:click="addItem"
+        wire:loading.attr="disabled"
+        wire:target="addItem"> 
              Agregar al carrito de compras
         </x-button-dinamic>
       </div>
