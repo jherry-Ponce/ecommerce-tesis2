@@ -68,7 +68,7 @@
 
                         <li class="mr-3 flex-1">
                             <a href="{{route('admin.provedor.show')}}" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline ">
-                                <i class="fa-id-card-alt"></i><span class="pb-1 md:pb-0 font-semibold text-xs md:text-base text-white md:text-white block md:inline-block">Provedores</span>
+                                <i class="fas fa-dolly pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 font-semibold text-xs md:text-base text-white md:text-white block md:inline-block">Provedores</span>
                             </a>
                         </li>
                         <li class="mr-3 flex-1">

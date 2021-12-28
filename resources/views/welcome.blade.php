@@ -1,6 +1,27 @@
 <x-app-layout >
 
-        <x-slider/>
+        
+   {{--  @foreach ($sliders as $slider) 
+ 
+        @livewire('slider-show')
+  
+    @endforeach  --}}
+          
+            <div class="glider-contain">
+                <div class="glider">
+                    @foreach ($sliders as $slider) 
+                    
+                        @livewire('slider-show',['slider' => $slider])
+                
+                    @endforeach 
+                </div>
+                <button aria-label="Previous" class="glider-prev " style="left: 23px; border-radius: 9999px; background-color: rgb(243 244 246 / var(--tw-bg-opacity)); --tw-text-opacity: 1;
+                color: rgb(37 99 235 / var(--tw-text-opacity));">«</button>
+                <button aria-label="Next" class="glider-next " style="right: 23px; border-radius: 9999px; background-color: rgb(243 244 246 / var(--tw-bg-opacity)); --tw-text-opacity: 1;
+                color: rgb(37 99 235 / var(--tw-text-opacity))">»</button>
+                    <div role="tablist" class="dots"></div>
+            </div> 
+        
 
 
         <div    class="container py-8">
@@ -82,8 +103,31 @@
 
                 });
                 
+
+
+
+                
         
             </script> 
+        @endpush
+
+        @push('sli')
+            <script>
+                new Glider(document.querySelector('.glider'), {
+                    slidesToShow: 1,                   
+                    duration:0.5,
+                    dragVelocity:3.33,
+                    dots: '.dots',
+                    draggable: true,
+                    
+                    arrows: {
+                        prev: '.glider-prev',
+                        next: '.glider-next'
+                    }
+                    });
+                
+            </script>
+ 
         @endpush
    
 </x-app-layout>

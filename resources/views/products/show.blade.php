@@ -8,7 +8,7 @@
                      
                         @foreach ($product->images as $image)
                             <li class="rounded-t h-96 w-full object-cover object-center" data-thumb="/storage/{{$image->url}}">
-                                <img src="/storage/{{$image->url}}" />
+                                <img class="w-full" src="/storage/{{$image->url}}" />
                             </li>
                         @endforeach
                     

@@ -982,6 +982,9 @@ select {
 .top-0 {
   top: 0px;
 }
+.bottom-1 {
+  bottom: 0.25rem;
+}
 .bottom-0 {
   bottom: 0px;
 }
@@ -1207,6 +1210,9 @@ select {
 }
 .h-auto {
   height: auto;
+}
+.h-screen {
+  height: 100vh;
 }
 .h-64 {
   height: 16rem;
@@ -2381,6 +2387,9 @@ para que esta clase importa pase al archivo ubicado en public/css/app.css que de
 /* .navigation-link:hover al pasar el mouse por ese link se mostrara .navigation-submenu */
 .navigation-link:hover .navigation-submenu {
         display: block !important;
+    }
+.slider-tam{
+        height: 70vh;
     }
 .form-control {
   border-radius: 0.375rem;

@@ -5,12 +5,16 @@ namespace App\Http\Livewire\Admin\Orders;
 use App\Models\Pedido;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use PDF;
 
 class ShowOrders extends Component
 {
 
 
-    public $orden;
+    public $orden,$abb;
+    public function mount(){
+        $this->abb=DB::table('ordenes')->get();
+    }
     public function status($id){
 
         $this->orden= Pedido::where('id',$id)
@@ -48,6 +52,13 @@ class ShowOrders extends Component
                 break;
         }
  
+    }
+    public function pdf(){
+       
+        $pdf = PDF::loadView('livewire.admin.pdf.orden',$this->abb);
+        return $pdf->download('livewire.admin.pdf.orden'); 
+        return $pdf->stream();
+        
     }
 
     public function render()

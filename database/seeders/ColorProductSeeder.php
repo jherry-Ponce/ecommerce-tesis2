@@ -17,29 +17,27 @@ class ColorProductSeeder extends Seeder
     {
         //wherehas permite hacer consultas a las relaciones del modelo 
         //se condiciona que nos retorne todos los productos que cumplan con lo pedido 
-        $products=Product::whereHas('subcategory', function(Builder $query){
-            $query->where('color',true)
-            ->where('size',false);
+        $products = Product::whereHas('subcategory', function(Builder $query){
+            $query->where('color', true)
+                    ->where('size', false);
         })->get();
 //usando el metodo attach agrega datos a la tabla intermedia de las dos tablas con relaccion muchos a muchos
 
-        foreach ( $products as  $product) {
-            # code...
-
-            $product->colors()->attach([
-                1=>[
-                    'quantity' => 10
-                ],
-                2=>[
-                    'quantity' => 10
-                ],
-                3=>[
-                    'quantity' => 10
-                ],
-                4=>[
-                    'quantity' => 10
-                ],
-            ]);
-        }
+foreach ($products as $product) {
+    $product->colors()->attach([
+        1 => [
+            'quantity' => 10
+        ], 
+        2 => [
+            'quantity' => 10
+        ], 
+        3 => [
+            'quantity' => 10
+        ], 
+        4 => [
+            'quantity' => 10
+        ]
+    ]);
+}
     }
 }

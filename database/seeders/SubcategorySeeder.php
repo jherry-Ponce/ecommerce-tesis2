@@ -157,7 +157,7 @@ class SubcategorySeeder extends Seeder
                 'category_id' => 1,
                 'name' => 'Relojes',
                 'slug' => Str::slug('Chompas'),
-
+                'color' => true,
             ],
         ];
         foreach ($subcategories as $subcategory) {

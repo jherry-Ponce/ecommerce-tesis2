@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImprimirController;
 use App\Http\Livewire\Admin\CreateCategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\PanelAdmin;
@@ -26,3 +27,5 @@ Route::get('Rol',RolesComponent::class)->name('admin.rol');
 Route::get('Users',UserComponent::class)->name('admin.users');
 Route::get('Orders/create',CreateOrders::class)->name('admin.ordercreate');
 Route::get('Orders',ShowOrders::class)->name('admin.ordershow');
+Route::get('/Imprimir',[ImprimirController::class, 'index'])->name('admin.imprimir');
+Route::get('/Imprimir/download',[ImprimirController::class, 'pdf'])->name('admin.imprimir2');

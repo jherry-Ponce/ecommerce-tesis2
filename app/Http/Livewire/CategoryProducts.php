@@ -21,6 +21,7 @@ class CategoryProducts extends Component
         $this->products = $this->category->products()->where('status',2)->take(15)->get();
         
         /* para que se haga el evento se utiliza la funcion emit() */
+    
         $this->emit('glider', $this->category->id);
     }
 

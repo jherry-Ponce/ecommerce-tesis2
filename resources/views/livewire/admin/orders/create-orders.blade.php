@@ -29,7 +29,7 @@
      
              <div class="w-full">
                  <x-jet-label value="Impuesto(%)"/>
-                 <x-jet-input class="w-full" type="number" value="{{$impuesto}}" />
+                 <x-jet-input class="w-full bg-gray-200" type="number" readonly="true"  value="{{$impuesto}}" />
               
              </div>
      
