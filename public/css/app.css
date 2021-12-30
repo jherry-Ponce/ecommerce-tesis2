@@ -982,9 +982,6 @@ select {
 .top-0 {
   top: 0px;
 }
-.bottom-1 {
-  bottom: 0.25rem;
-}
 .bottom-0 {
   bottom: 0px;
 }
@@ -1024,10 +1021,6 @@ select {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
 .mx-6 {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -1035,6 +1028,10 @@ select {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 .mx-2 {
   margin-left: 0.5rem;
@@ -1169,6 +1166,9 @@ select {
 .table {
   display: table;
 }
+.table-cell {
+  display: table-cell;
+}
 .grid {
   display: grid;
 }
@@ -1210,9 +1210,6 @@ select {
 }
 .h-auto {
   height: auto;
-}
-.h-screen {
-  height: 100vh;
 }
 .h-64 {
   height: 16rem;
@@ -1291,6 +1288,9 @@ select {
 }
 .w-96 {
   width: 24rem;
+}
+.w-11\/12 {
+  width: 91.666667%;
 }
 .w-56 {
   width: 14rem;
@@ -1506,6 +1506,10 @@ select {
 .overflow-x-scroll {
   overflow-x: scroll;
 }
+.overscroll-none {
+  -ms-scroll-chaining: none;
+      overscroll-behavior: none;
+}
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1635,6 +1639,10 @@ select {
 .border-red-500 {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+.border-gray-50 {
+  --tw-border-opacity: 1;
+  border-color: rgb(249 250 251 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -1857,9 +1865,6 @@ select {
 .bg-center {
   background-position: center;
 }
-.bg-top {
-  background-position: top;
-}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1954,10 +1959,6 @@ select {
 .py-24 {
   padding-top: 6rem;
   padding-bottom: 6rem;
-}
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 .py-0 {
   padding-top: 0px;
@@ -2225,6 +2226,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(30 58 138 / var(--tw-text-opacity));
 }
+.text-purple-500 {
+  --tw-text-opacity: 1;
+  color: rgb(168 85 247 / var(--tw-text-opacity));
+}
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
@@ -2236,6 +2241,10 @@ select {
 .no-underline {
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
+}
+.decoration-wavy {
+  -webkit-text-decoration-style: wavy;
+          text-decoration-style: wavy;
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
@@ -2492,6 +2501,10 @@ para que esta clase importa pase al archivo ubicado en public/css/app.css que de
 .hover\:text-Blue-500:hover {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
+}
+.hover\:text-purple-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(147 51 234 / var(--tw-text-opacity));
 }
 .hover\:text-blue-400:hover {
   --tw-text-opacity: 1;
@@ -3026,6 +3039,10 @@ para que esta clase importa pase al archivo ubicado en public/css/app.css que de
 
   .md\:gap-11 {
     gap: 2.75rem;
+  }
+
+  .md\:gap-0 {
+    gap: 0px;
   }
 
   .md\:overflow-hidden {

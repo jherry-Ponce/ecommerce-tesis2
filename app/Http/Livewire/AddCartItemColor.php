@@ -3,27 +3,58 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-
+use Gloudemans\Shoppingcart\Facades\Cart;
 class AddCartItemColor extends Component
 {
     public $product,$colors,$color_id="";
 
     public $qty=1;
     public $quantity=0;
+    public $options=[];
 
     public function mount(){
         $this->colors = $this->product->colors;
+        $this->options['image']=$this->product->images->first()->url;
     }
+
+     /* esta funcion se aCTUALIZA CADA VEZ QUE CAMBIE EL VALOR DE LA VARIABLE DECLARADA */
+     public function updatedColorId($value)
+     {
+        $color = $this->product->colors->find($value);
+         $this->quantity= $color->pivot->quantity;
+
+         $this->options['color']= $color->name;
+    
+ 
+     }
+
+    public function decrement(){
+        if($this->qty>=2){
+             $this->qty = $this->qty-1;    
+            }
+    }
+
+    public function increment(){
+        /* $this->qty = $this->qty+1; */
+        $this->qty++;     
+    }
+
+    public function addItem(){
+        Cart::add([
+            'id' => $this->product->id,
+             'name' => $this->product->name, 
+             'qty' => $this->qty, 
+             'price' => $this->product->priceV, 
+             'weight' => 550,
+             'options'=>$this->options
+            
+        ]);
+        /* emitTo permite especificar que componente lo escuchara */
+        $this->emitTo('dropdown-cart','render');
+    }
+
     public function render()
-    {
-        
+    { 
         return view('livewire.add-cart-item-color');
-    }
-
-    /* esta funcion se3 aCTUALIZA CADA VEZ QUE CAMBIE EL VALOR DE LA VARIABLE DECLARADA */
-    public function updatedColorId($value)
-    {
-        $this->quantity= $this->product->colors->find($value)->pivot->quantity;
-
     }
 }

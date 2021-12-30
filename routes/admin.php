@@ -8,6 +8,7 @@ use App\Http\Livewire\Admin\ShowProducts;
 use App\Http\Livewire\Admin\CreateProduct;
 use App\Http\Livewire\Admin\users\RolesComponent;
 use App\Http\Livewire\Admin\EditProduct;
+use App\Http\Livewire\Admin\Kardex\ShowKardex;
 use App\Http\Livewire\Admin\Orders\CreateOrders;
 use App\Http\Livewire\Admin\Orders\ShowOrders;
 use App\Http\Livewire\Admin\Provedor\CreateProveedor;
@@ -29,3 +30,5 @@ Route::get('Orders/create',CreateOrders::class)->name('admin.ordercreate');
 Route::get('Orders',ShowOrders::class)->name('admin.ordershow');
 Route::get('/Imprimir',[ImprimirController::class, 'index'])->name('admin.imprimir');
 Route::get('/Imprimir/download',[ImprimirController::class, 'pdf'])->name('admin.imprimir2');
+
+Route::get('/Kardex', ShowKardex::class)->name('Kardex.index');

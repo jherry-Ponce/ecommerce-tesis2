@@ -22,24 +22,24 @@ class AddCartItem extends Component
              $this->qty = $this->qty-1;
         
             }
-
     }
 
     public function increment(){
         /* $this->qty = $this->qty+1; */
-        $this->qty++; 
-        
+        $this->qty++;    
     }
     public function addItem(){
         Cart::add([
             'id' => $this->product->id,
              'name' => $this->product->name, 
              'qty' => $this->qty, 
-             'price' => $this->product->price, 
+             'price' => $this->product->priceV, 
              'weight' => 550,
              'options'=>$this->options
             
         ]);
+        /* emitTo permite especificar que componente lo escuchara */
+        $this->emitTo('dropdown-cart','render');
     }
     public function render()
     {

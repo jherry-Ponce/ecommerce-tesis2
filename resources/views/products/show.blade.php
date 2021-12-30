@@ -26,7 +26,7 @@
                     <a class="text-blue-500 hover:text-blue-600 underline" href="">39 reseñas</a>
                 </div>
 
-                <p class="text-2xl font-semibold text-trueGray-700 my-4">S/ {{ $product->price }}</p>
+                <p class="text-2xl font-semibold text-trueGray-700 my-4">S/ {{ $product->priceV }}</p>
 
                 {{-- shadow se encarga de dale el relive del fondo --}}
                 <div class="bg-white rounded-lg shadow-lg mb-6">

@@ -15,6 +15,7 @@ class CreateOrdenesTable extends Migration
     {
         Schema::create('ordenes', function (Blueprint $table) {
             $table->unsignedBigInteger('id');
+            
             $table->unsignedBigInteger('codpedidos');
             $table->foreign('codpedidos')->references('id')->on('pedidos');
 

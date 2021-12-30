@@ -1,5 +1,5 @@
 <div class="mt-16" >
-       <div class=" container flex bg-white pl-4 py-2 items-center shadow-xl" >
+       <div class="  flex bg-white px-4 py-2 items-center shadow-xl" >
             <h2 class="font-semibold text-xl text-gray-800 leading-tight  ">
                 Lista Productos
             </h2>
@@ -31,7 +31,7 @@
                             <tbody class="text-gray-600 text-sm font-light">
                                 @foreach ($products as $product)          
 
-                                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                    <tr class=" hover:bg-gray-100">
                                         <td class="py-3 px-6 text-left whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="mr-2">
