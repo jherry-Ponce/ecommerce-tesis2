@@ -14,7 +14,9 @@ use App\Http\Livewire\Admin\Orders\ShowOrders;
 use App\Http\Livewire\Admin\Provedor\CreateProveedor;
 use App\Http\Livewire\Admin\Provedor\ShowProveedor;
 use App\Http\Livewire\Admin\Slider\CreateSlider;
+use App\Http\Livewire\Admin\Users\SearchUsers;
 use App\Http\Livewire\Admin\Users\UserComponent;
+use App\Http\Livewire\Search;
 
 Route::get('/', PanelAdmin::class)->name('admin.dashboard');
 Route::get('/Product', ShowProducts::class)->name('producto.index');
@@ -32,3 +34,4 @@ Route::get('/Imprimir',[ImprimirController::class, 'index'])->name('admin.imprim
 Route::get('/Imprimir/download',[ImprimirController::class, 'pdf'])->name('admin.imprimir2');
 
 Route::get('/Kardex', ShowKardex::class)->name('Kardex.index');
+Route::get('/Clientes', SearchUsers::class)->name('cliente.index');

@@ -20,6 +20,12 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
+    'apisunat' => [
+        'token' => env('API_SUNAT_TOKEN'),
+        'urldni' => env('API_SUNAT_URL_DNI'),
+        'urlruc' => env('API_SUNAT_URL_RUC'),
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

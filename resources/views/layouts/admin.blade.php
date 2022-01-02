@@ -149,7 +149,7 @@
                             </a>
                         </li>
                         <li class="mr-3 flex-1">
-                            <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white ">
+                            <a href="{{route('cliente.index')}}" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white ">
                                 <i class="fas fa-users pr-0 md:pr-3 "></i><span class="pb-1 md:pb-0 font-semibold text-xs md:text-base text-white md:text-white block md:inline-block">Clientes</span>
                             </a>
                         </li>
