@@ -18,6 +18,9 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
+
+    const dni=1;
+    const ruc=2;
     /**
      * The attributes that are mass assignable.
      *
@@ -25,6 +28,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'Dni',
         'email',
         'password',
     ];

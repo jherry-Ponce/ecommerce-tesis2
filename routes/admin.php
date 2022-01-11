@@ -16,6 +16,10 @@ use App\Http\Livewire\Admin\Provedor\ShowProveedor;
 use App\Http\Livewire\Admin\Slider\CreateSlider;
 use App\Http\Livewire\Admin\Users\SearchUsers;
 use App\Http\Livewire\Admin\Users\UserComponent;
+use App\Http\Livewire\Admin\Ventas\Detventa;
+use App\Http\Livewire\Admin\Ventas\Showventas;
+use App\Http\Livewire\Admin\Ventas\Venta;
+use App\Http\Livewire\Admin\Ventas\Viewventa;
 use App\Http\Livewire\Search;
 
 Route::get('/', PanelAdmin::class)->name('admin.dashboard');
@@ -35,3 +39,7 @@ Route::get('/Imprimir/download',[ImprimirController::class, 'pdf'])->name('admin
 
 Route::get('/Kardex', ShowKardex::class)->name('Kardex.index');
 Route::get('/Clientes', SearchUsers::class)->name('cliente.index');
+
+Route::get('/venta', Viewventa::class)->name('venta.index');
+ Route::get('/venta/nueva', Showventas::class)->name('createventa.index'); 
+ Route::get('/venta/{ventas}/detalle', Detventa::class)->name('detventa.index'); 

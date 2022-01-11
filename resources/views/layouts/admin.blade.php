@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="csrf-token" content="{{ csrf_token() }}">
    <title>{{config('app.name', 'Laravel')}}</title>
-
+   @notifyCss
    <!-- Fonts -->
    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -13,7 +13,7 @@
       <link rel="stylesheet" href="{{ asset('css/app.css') }}">
       {{-- fontawesome --}}
       <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
-   
+      
       @livewireStyles
    <!--Scripts -->
       <script src="{{ mix('js/app.js')}}" defer></script>
@@ -61,7 +61,7 @@
                               </div>
                         </li>
                         <li class="mr-3 flex-1">
-                            <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline ">
+                            <a href="{{route('venta.index')}}" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline ">
                                  <i class="fas fa-shopping-cart pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 font-semibold text-xs md:text-base text-white md:text-white block md:inline-block">Ventas</span>
                             </a>
                         </li>
@@ -257,6 +257,8 @@
     }
 </script>
   @livewireScripts
+  @notifyJs
+  <x:notify-messages />
 
 
 

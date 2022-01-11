@@ -26,8 +26,14 @@ module.exports = {
                 Red: colors.red,
                 Teal: colors.teal,
                 Purple: colors.purple,
+              },
+              gridTemplateColumns: {
+                // Simple 16 column grid
+                '6': 'repeat(6, minmax(0, 1fr))',
               }
         },
+
+       
     },
 
     variants: {

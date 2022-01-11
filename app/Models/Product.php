@@ -65,4 +65,8 @@ class Product extends Model
     }
 
 
+    public function ventas(){
+        return $this->belongsToMany(Venta::class);
+    }
+
 }

@@ -21,6 +21,16 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="name" value="{{ __('Tipo de documento') }}" />
+                <select name="" id="" class="form-control w-full mt-1">
+                    <option value="1">DNI</option>
+                    <option value="2">Carnet Extranjeria</option>
+                </select>
+             
+                <x-jet-input id="Dni" class="block mt-2 w-full" type="number" name="Dni" :value="old('Dni')" required autofocus autocomplete="Dni" />
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>

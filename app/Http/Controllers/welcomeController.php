@@ -13,6 +13,7 @@ class welcomeController extends Controller
         
         $categories = Category::all();
         $sliders= Slider::all();
+        notify()->success('Welcome to Laravel Notify ⚡️');
         return view('welcome', compact('categories','sliders'));
     }
 }

@@ -18,3 +18,9 @@
     .slider-tam{
         height: 70vh;
     }
+
+    .inputoutlinenone {
+        outline: none;
+        
+        border: 0;
+      }
