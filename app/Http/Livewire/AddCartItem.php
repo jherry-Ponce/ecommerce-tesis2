@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Storage;
@@ -10,10 +11,16 @@ class AddCartItem extends Component
 {
     public $qty = 1;
     public $product,$quantity;
-    public $options=[];
+    public $options = [
+        'color_id'=>null,
+        'size_id'=>null,
+    ];
+
+    
 
     public function mount(){
-        $this->quantity=$this->product->quantity;
+        $this->quantity = qty_available($this->product->id);
+
         $this->options['image']=$this->product->images->first()->url;
        /*  dd($this->options); */
     }
@@ -38,6 +45,8 @@ class AddCartItem extends Component
              'options'=>$this->options
             
         ]);
+        $this->quantity=qty_available($this->product->id);
+        $this->reset('qty');
         /* emitTo permite especificar que componente lo escuchara */
         $this->emitTo('dropdown-cart','render');
     }

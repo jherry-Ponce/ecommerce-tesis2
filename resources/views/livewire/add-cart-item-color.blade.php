@@ -1,6 +1,6 @@
 <div  x-data>
    <p class="text-xl text-gray-700 font-semibold">Color</p>
-
+   
    <select wire:model="color_id" class="form-control w-full">
        <option value="" selected disabled>Seleccionar un color</option>
        @foreach ($colors as $color)
@@ -8,7 +8,17 @@
            
        @endforeach
    </select>
-   
+   <p class="text-gray-700 mb-4 font-semibold">
+    Stock disponible: <span>
+        @if ($quantity)
+            {{$quantity}}
+        @else
+        {{$product->stock}}
+        @endif
+        
+
+    </span>
+  </p>
    <div class="flex mt-4">
         <div>
         {{-- •	x-bind: Asigna el valor de un atributo  --}}
@@ -39,13 +49,12 @@
         </div>
         
         <div class=" flex-1 ml-4  ">
-        <x-button-dinamic color='indigo' class="w-full"
-        x-bind:disabled="!$wire.quantity"
-        wire:click="addItem"
-        wire:loading.attr="disabled"
-        wire:target="addItem"> 
-            Agregar al carrito de compras
-        </x-button-dinamic>
+            <x-button-dinamic color='blue' class="w-full" wire:click="addItem"
+            x-bind:disabled="$wire.qty > $wire.quantity"
+            wire:loading.attr="disabled"
+            wire:target="addItem"> 
+                 Agregar al carrito de compras
+            </x-button-dinamic>
         </div>
    </div>
 

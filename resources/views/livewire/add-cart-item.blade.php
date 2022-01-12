@@ -32,6 +32,7 @@
         
       <div class=" flex-1 ml-4  ">
         <x-button-dinamic color='blue' class="w-full" wire:click="addItem"
+        x-bind:disabled="$wire.qty > $wire.quantity"
         wire:loading.attr="disabled"
         wire:target="addItem"> 
              Agregar al carrito de compras

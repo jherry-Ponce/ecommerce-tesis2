@@ -10,20 +10,24 @@ class AddCartItemColor extends Component
 
     public $qty=1;
     public $quantity=0;
-    public $options=[];
+    public $options=[
+        'size_id'=>null,
+    ];
 
     public function mount(){
         $this->colors = $this->product->colors;
+        
         $this->options['image']=$this->product->images->first()->url;
+        
     }
 
      /* esta funcion se aCTUALIZA CADA VEZ QUE CAMBIE EL VALOR DE LA VARIABLE DECLARADA */
      public function updatedColorId($value)
-     {
+     { 
         $color = $this->product->colors->find($value);
-         $this->quantity= $color->pivot->quantity;
-
+         $this->quantity= qty_available($this->product->id, $color->id);
          $this->options['color']= $color->name;
+         $this->options['color_id']= $color->id;
     
  
      }
@@ -49,7 +53,10 @@ class AddCartItemColor extends Component
              'options'=>$this->options
             
         ]);
-        /* emitTo permite especificar que componente lo escuchara */
+        $this->quantity= qty_available($this->product->id, $this->color_id);
+        $this->reset('qty');
+        /* em
+        itTo permite especificar que componente lo escuchara */
         $this->emitTo('dropdown-cart','render');
     }
 

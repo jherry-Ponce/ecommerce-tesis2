@@ -12,8 +12,9 @@ class Product extends Model
     const borrador=1;
     const publicado=2;
     protected $guarded = ['id','created_at','updated_at'];
-
-    /* public function getStockAttribute(){
+/* Accesor debe iniciar con get seguido el nombre que del campo que se tomara y terminado en attribute */
+/* esto nos indicara que tipo de producto es, ya sea que necesite talla o color */
+   public function getStockAttribute(){
         if ($this->subcategory->size) {
             return  ColorSize::whereHas('size.product', function(Builder $query){
                         $query->where('id', $this->id);
@@ -28,7 +29,7 @@ class Product extends Model
 
         }
         
-    } */
+    }
     //relacion uno a muchos inversa
     public function brand(){
         return $this->belongsTo(Brand::class);

@@ -33,7 +33,7 @@
                       </a>  
                     </h1>
 
-                    <p class="font-bold text-trueGray-700">S/ {{$product->price}}</p>
+                    <p class="font-bold text-trueGray-700">S/ {{$product->priceV}}</p>
                   </div>
                 </article>
               </li>
