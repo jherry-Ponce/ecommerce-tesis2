@@ -1,6 +1,6 @@
 <x-app-layout>
 
-   {{--  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+     {{-- <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
 
         <div class="bg-white rounded-lg shadow-lg px-12 py-8 mb-6 flex items-center">
@@ -121,7 +121,7 @@
                             </td>
 
                             <td class="text-center">
-                                {{ $item->price }} USD
+                               S/. {{ $item->price }}
                             </td>
 
                             <td class="text-center">
@@ -129,16 +129,19 @@
                             </td>
 
                             <td class="text-center">
-                                {{ $item->price * $item->qty }} USD
+                               S/.{{ $item->price * $item->qty }} 
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
+ --}}
+
+
+   {{--  </div>  --}}
 
 
 
-    </div> --}}
-
+   
 </x-app-layout>

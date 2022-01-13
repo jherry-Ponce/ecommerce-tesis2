@@ -5,6 +5,7 @@ use App\Http\Controllers\welcomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WebhooksController;
 use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\PaymentOrder;
 use App\Http\Livewire\ShoppingCart;
@@ -35,6 +36,9 @@ Route::get('orders/{order}', [OrderController::class, 'show'])->name('orders.sho
 
 Route::get('orders/{order}/payment', [OrderController::class, 'payment'])->name('orders.payment');
 
+Route::get('orders/{order}/pay', [OrderController::class, 'pay'])->name('orders.pay');
+
+Route::post('webhooks', WebhooksController::class);
 
 
 /* 
