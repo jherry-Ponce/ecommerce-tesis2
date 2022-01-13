@@ -112,7 +112,7 @@
                 </div>
 
                 <div>
-                    <x-button-enlace href="{{-- {{ route('orders.create') }} --}}">
+                    <x-button-enlace href=" {{ route('orders.create') }}">
                         Continuar
                     </x-button-enlace>
                 </div>
