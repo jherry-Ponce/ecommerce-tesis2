@@ -2,7 +2,7 @@
 
     <div class="container py-12">
 
-        <section class="grid grid-cols-5 gap-6 text-white">
+        <section class="grid grid-cols-6 gap-6 text-white">
             <a href="{{ route('orders.index') . "?status=1" }}" class="bg-red-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{$pendiente}}
@@ -23,7 +23,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('orders.index') . "?status=3" }}" class="bg-yellow-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('orders.index') . "?status=3" }}" class="container bg-yellow-600 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{$enviado}}
                 </p>
@@ -33,7 +33,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('orders.index') . "?status=4" }}" class="bg-pink-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('orders.index') . "?status=4" }}" class="bg-pink-600 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{$entregado}}
                 </p>
@@ -57,7 +57,7 @@
         @if ($orders->count())
             
         
-            <section class="bg-white shadow-lg rounded-lg px-12 py-8 mt-12 text-gray-700">
+            <section class="bg-white shadow-lg rounded-lg px-6 py-8 mt-12 text-gray-700">
                 <h1 class="text-2xl mb-4">Pedidos recientes</h1>
 
                 <ul>
@@ -129,7 +129,7 @@
                                     <br>
 
                                     <span class="text-sm">
-                                        {{$order->total}} USD
+                                       S/.{{$order->total}} 
                                     </span>
                                 </div>
 

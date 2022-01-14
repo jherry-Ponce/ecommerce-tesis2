@@ -75,6 +75,10 @@ Para darle funcionalidad al boton de categorias se usara javascript una de sus l
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
+                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                            {{ __('Mis ordenes') }}
+                        </x-jet-dropdown-link>
+
                         @role('admin')
                             <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
                                 {{ __('Administrador') }}

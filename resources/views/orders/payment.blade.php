@@ -107,7 +107,7 @@
                             </td>
 
                             <td class="text-center">
-                                {{$item->price}} USD
+                               S/.{{$item->price}} 
                             </td>
 
                             <td class="text-center">
@@ -115,7 +115,7 @@
                             </td>
 
                             <td class="text-center">
-                                {{$item->price * $item->qty}} USD
+                                S/.{{$item->price * $item->qty}} 
                             </td>
                         </tr>
                     @endforeach
@@ -127,13 +127,13 @@
             <img class="h-8" src="{{ asset('img/MC_VI_DI_2-1.jpg') }}" alt="">
             <div class="text-gray-700">
                 <p class="text-sm font-semibold">
-                    Subtotal: {{$order->total - $order->shipping_cost}} USD
+                    Subtotal: S/.{{$order->total - $order->shipping_cost}} 
                 </p>
                 <p class="text-sm font-semibold">
-                    Envío: {{$order->shipping_cost}} USD
+                    Envío: S/.{{$order->shipping_cost}} 
                 </p>
                 <p class="text-lg font-semibold uppercase">
-                    Total: {{$order->total}} USD
+                    Total: S/.{{$order->total}} 
                 </p>
 
                 <div class="cho-container">
