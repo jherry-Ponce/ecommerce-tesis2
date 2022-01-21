@@ -7,75 +7,110 @@
         
     </div>
     
- <div class="container flex-1 flex-wrap mt-12 md:mt-0 pb-24 md:pb-5  border-2 border-gray-200">   
-     
-   {{--  <div class="mt-8">
-       <strong> Vendedor: </strong> {{auth::user()}}
-    </div> --}}
-
-    <div class="mt-8">
-        <strong> Cliente: </strong> {{$this->cliente->name}}
-     </div>
-     <x-table-responsive >
-
-                 
-               
-                                         
-                      <table class="w-1/4 md:w-full table-auto">
-                         <thead>
-                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                                 <th class="py-3 px-6 text-left">boleta</th>
-                                 <th class="py-3 pxborder-4 border-light-blue-500 border-opacity-25-6 text-left">Producto</th>
-                                 <th class="py-3 px-6 text-center">Precio</th>
-                                 <th class="py-3 px-6 text-center">Cantidad</th>
-                                 <th class="py-3 px-6 text-center">total</th>
-                             </tr>
-                         </thead>
-                         <tbody class="text-gray-600 text-sm font-light">
-                             @foreach ($detalle as $detalles)          
-
-                                 <tr class=" hover:bg-gray-100">
-                                     <td class="py-3 px-6 text-left whitespace-nowrap">
-                                         <div class="flex items-center">
-                                             
-                                             <span class="font-medium">000{{$ventas->id}}</span>
-                                         </div>
-                                     </td>
-
-                                     <td class="py-3 px-6 text-left">
-                                         <div class="flex items-center">
-                                             <span>{{$detalles->products_id}}</span>
-                                         </div>
-                                     </td>
+    <div class="container flex-1 flex-wrap mt-12 md:mt-0 pb-24 md:pb-5 ">   
 
 
-                                     <td class="py-3 px-6 text-center">
-                                        <div class="flex items-center">
-                                            <span>{{$detalles->precio}}</span>
-                                        </div>
-                                    
-                                    </td>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-12">
+      
+            <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 flex items-center">
+                <p class="text-gray-700 uppercase"><span class="font-semibold">Número de orden:</span> Orden-{{$ventas->id}}</p>
+                
+            </div>
 
-                                     <td class="py-3 px-6 text-center">
-                                         <div class="flex items-center justify-center">
-                                            <span>{{$detalles->cantidad}}</span>
-                                         </div>
-                                     </td>
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                <div class="grid grid-cols-2 gap-6 text-gray-700">
+                    <div>
+                        <p class="text-lg font-semibold uppercase">Cliente</p>
 
-                                     
-                                     
+                        <p class="text-sm">Persona que recibio el producto: {{$cliente->name}}</p>
+                        
+                    </div>
+                </div>
+            </div>
+        
 
-                                    
-                                 </tr>
+            <div class="bg-white rounded-lg shadow-lg p-6 text-gray-700 mb-6">
+                <p class="text-xl font-semibold mb-4">Resumen</p>
 
-                         @endforeach
-                         </tbody>
-                     </table> 
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Precio</th>
+                            <th>Cant</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="divide-y divide-gray-200">
+                        @foreach ($items as $item)
+                            <tr>
+                                <td>
+                                    <div class="flex">
+                                        <img class="h-15 w-20 object-cover mr-4" 
+                                            src="/storage/{{$item->options->image}}" alt=""> 
+                                        <article>
+                                            <h1 class="font-bold">{{$item->name}}</h1>
+                                            <div class="flex text-xs">
+
+                                                @isset ($item->options->color)
+                                                    Color: {{__($item->options->color)}}
+                                                @endisset
+
+                                                @isset ($item->options->size)
+                                                    - {{$item->options->size}}
+                                                @endisset
+                                            </div>
+                                        </article>
+                                    </div>
+                                </td>
+
+                                <td class="text-center">
+                                S/. {{$item->price}} 
+                                </td>
+
+                                <td class="text-center">
+                                    {{$item->qty}}
+                                </td>
+
+                                <td class="text-center">
+                                    S/.{{$item->price * $item->qty}} 
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 flex justify-between items-center mb-8 ">
+                    <img class="h-8" src="{{ asset('img/MC_VI_DI_2-1.jpg') }}" alt="">
+                        <div class="text-gray-700">
+                            <p class="text-sm font-semibold">
+                                Subtotal: S/.{{$detVentas->total }} 
+                            </p>
+                        
+                            <p class="text-lg font-semibold uppercase">
+                                Total: S/.{{$detVentas->total}} 
+                            </p>
 
                 
+                         </div>
+                </div>
 
-              
-                
-     </x-table-responsive>  
+                <div class="bg-white rounded-lg shadow-lg p-6 flex justify-between items-center">
+
+                    <a href="{{route("admin.imprimir",$detVentas)}}" target="_blank"> <x-button-dinamic >
+                        ver Boleta
+                    </x-button-dinamic> </a>
+        
+                   <a href="{{route("admin.ticket",$detVentas)}} " target="_blank"> <x-button-dinamic>
+                        ver ticket
+                    </x-button-dinamic> </a>
+                </div>
+      </div>
+
+        
+
+    </div>
  </div>     
 </div>

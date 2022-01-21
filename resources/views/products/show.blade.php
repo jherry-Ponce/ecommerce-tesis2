@@ -42,7 +42,7 @@
                                 Y SE AGREGA EL METODO LOCAL(ES)')
                                     
                                 @show --}}
-                            <p>Recibelo el {{ Date::now()->addDay(2)->locale('es')->format('l j F') }}</p>
+                            <p>Recibelo el {{ Date::now()->addDay(2)->locale('es')->timezone('America/lima')->format('l j F') }}</p>
                         </div>
                     </div>
                 </div>

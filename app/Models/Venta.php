@@ -10,8 +10,12 @@ class Venta extends Model
     use HasFactory;
 
     protected $guarded = ['id','created_at','updated_at'];
-
-    public function products(){
+    const Online = 1;
+    const Tienda = 2;
+   /*  public function products(){
         return $this->belongsToMany(Product::class);
+    } */
+    public function detalle(){
+        return $this->hasMany(DetVentas::class);
     }
 }

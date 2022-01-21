@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Ventas;
 
+use App\Models\DetVentas;
 use Livewire\Component;
 use App\Models\User;
 
@@ -17,11 +18,16 @@ class Showventas extends Component
     use WithPagination;
 
     public $nombre,$TipoDoc="",$doc,$telf,$correo, $response,$pago,$vuelto,$total, $modal = false;
-    public $search;
+    public $search,$options;
     public $estado=0;
     public $cliente3="",$dato;
     public $qty = 1;
     
+    public $rules = [
+        'pago' => 'required',
+       
+    ];
+
 
     public function search(){
 
@@ -106,43 +112,48 @@ class Showventas extends Component
         $this->resetPage();
     }
 
+    public function mount(){
+       
+
+        /* $this->options['image']=$this->product->images->first()->url; */
+       /*  dd($this->options); */
+    }
     public function addItem($id){
         $product=Product::find($id);
-        
-        Cart::add([
+        $this->options['image']=$product->images->first()->url;
+        Cart::instance( 'ventas' )->add([
             'id' => $product->id,
              'name' => $product->name, 
              'qty' => $this->qty, 
              'price' => $product->priceV, 
              'weight' => 550,
+             'options'=>$this->options
              
             
         ]);
         
         
         /* emitTo permite especificar que componente lo escuchara */
-         $this->emitTo('venta','render'); 
+         $this->emitTo('Showventas','render'); 
 
   
     }
 
     public function venta(){
+        $rules = $this->rules;
+         $this->validate($rules);
 
 
         $venta = new Venta();
 
         $venta->status= '1';
+        $venta->tipo= '2';
         $venta->codcliente = $this->dato;
+        $venta->total = Cart::instance( 'ventas')-> subtotal();
         $venta->save(); 
-      /*   $venta=DB::table('ventas')->insert(
-            [  
-                'status' => '1',
-                'codcliente'=>$this->dato,
-                
-            ]
-            ); */
+      
 
-        foreach ( Cart::content() as $key ) {
+        /* foreach ( Cart::content() as $key ) {
             DB::table('detalleventa')->insert(
                 [  
                     'precio' => $key->price,
@@ -151,24 +162,33 @@ class Showventas extends Component
                     'products_id'=> $key->id,
                     
                 ]
-                );
+               
+                ); discount($key);
+        }; */
+
+        $order= new DetVentas();
+        $order->total = Cart::instance( 'ventas')-> subtotal();
+        $order->content = Cart::instance( 'ventas')-> content();
+        $order->venta_id = $venta->id;
+        $order->save(); 
+
+        foreach (Cart::instance( 'ventas')-> content() as $item) {
+            discount($item);
         }
         $this->reset();
-        Cart::destroy();
+        Cart::instance( 'ventas')-> destroy();
         return redirect()->route('venta.index');
         
-
-
     }
 
     public function render()
     {
  
         /* $products= Product::where('quantity','!=','')->paginate(8); */
-        $products=Product::where('name','like','%'. $this->search .'%')->where('quantity','!=','')->paginate(8);
-        if ($this->pago>=199) {
+        $products=Product::where('name','like','%'. $this->search .'%')->where('quantity','!=','')->paginate(4);
+        if ($this->pago>=1) {
         
-            $this->vuelto= round($this->pago-Cart::subtotal(),2);
+            $this->vuelto= round($this->pago-Cart::instance( 'ventas')-> subtotal(),2);
         }
         else{
             $this->vuelto ="";
@@ -180,8 +200,8 @@ class Showventas extends Component
                 if ($client) {
                     # code...
                     dd($client);
-                } */
-                 
+                } 
+                  */
             
        
      

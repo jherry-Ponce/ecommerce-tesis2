@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-
+use App\Models\Venta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class OrderController extends Controller
 {
@@ -14,8 +15,10 @@ class OrderController extends Controller
 
         $orders = Order::query()->where('user_id', auth()->user()->id);
 
+
         if (request('status')) {
             $orders->where('status', request('status'));
+            
         }
 
         $orders = $orders->get();
@@ -38,7 +41,7 @@ class OrderController extends Controller
     }
 
     public function payment(Order $order){
-
+        
         $items = json_decode($order->content);
 
         return view('orders.payment', compact('order', 'items'));
@@ -57,8 +60,20 @@ class OrderController extends Controller
         $status=$response->status;
        
         if ($status='aproved') {
+
+            $venta = new Venta();
+
+            $venta->status= '1';
+            $venta->tipo= '1';
+            $venta->codcliente =auth()->user()->id;
+            $venta->total = $order->total;
+            $venta->save(); 
+
+            $order ->venta_id=$venta->id;
             $order ->status=2;
             $order->save();
+
+            
         }
 
         return redirect()->route('orders.show',$order);

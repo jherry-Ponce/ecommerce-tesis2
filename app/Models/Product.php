@@ -66,8 +66,11 @@ class Product extends Model
     }
 
 
-    public function ventas(){
+  /*   public function ventas(){
         return $this->belongsToMany(Venta::class);
     }
 
+    public function detalle(){
+        return $this->hasMany(DetVentas::class);
+    } */
 }

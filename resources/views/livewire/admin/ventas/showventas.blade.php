@@ -23,9 +23,9 @@
         </div>
    </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mx-2 mt-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-6 mx-2 mt-4">
 
-        <div class=" container col-span-3 lg:col-span-4 mt-4 ">
+        <div class=" container col-span-1 md:col-span-3 lg:col-span-4 mt-4 ">
              <div class="grid lg:grid-cols-4 md:grid-cols-3  justify-items-center place-items-center">
                 <div class=" col-span-1">
                     <button type="button" class="flex relative font-semibold uppercase border-0 text-green-500" >
@@ -45,10 +45,10 @@
              </div>
 
              <div class="mt-8 hidden md:block">
-                <div class="lg:col-span-4">
+                <div class="md:col-span-3 lg:col-span-4">
 
                         {{-- gap-6 brinda espaciado entre columnas anto en el eje x  como y --}}
-                        <ul class=" grid md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+                        <ul class=" grid md:grid-cols-2 lg:grid-cols-4 gap-6 ">
                             @foreach ($products as $product)
                                 <li class="bg-white rounded-lg shadow">
                                     <article>
@@ -102,7 +102,7 @@
 
             <div class="mt-2">
                 <x-jet-label value="Fecha:"  />
-                <x-jet-input value=" {{Date::now()->locale('es')->format('d-m-Y') }}" readonly="true" class="inputoutlinenone w-full text-center  bg-gray-100" />
+                <x-jet-input value=" {{Date::now()->locale('es')->timezone('America/lima')->format('d-m-Y')}}" readonly="true" class="inputoutlinenone w-full text-center  bg-gray-100" />
                  
             </div>
 
@@ -129,7 +129,7 @@
                 <x-jet-label value="Total pagado por el cliente:"  />
                 <div class="flex">
                     <x-jet-input type="number" wire:model="pago"  class="inputoutlinenone w-full text-center bg-gray-50" />
-                    
+                    <x-jet-input-error for="pago" />
                 </div>
             </div>
 
@@ -143,7 +143,7 @@
             </div>
 
             <div class="mt-2  container">
-                @if (Cart::count()) 
+                @if (Cart::instance( 'ventas' )->count()) 
                     <div class="grid grid-cols-2 mt-4 ">
                         <div>
                             <span class=" font-semibold">Subtotal:</span>

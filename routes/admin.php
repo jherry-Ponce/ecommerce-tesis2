@@ -13,6 +13,8 @@ use App\Http\Livewire\Admin\Orders\CreateOrders;
 use App\Http\Livewire\Admin\Orders\ShowOrders;
 use App\Http\Livewire\Admin\Provedor\CreateProveedor;
 use App\Http\Livewire\Admin\Provedor\ShowProveedor;
+use App\Http\Livewire\Admin\Reportes\ReportesDiario;
+use App\Http\Livewire\Admin\Reportes\ReportesShow;
 use App\Http\Livewire\Admin\Slider\CreateSlider;
 use App\Http\Livewire\Admin\Users\SearchUsers;
 use App\Http\Livewire\Admin\Users\UserComponent;
@@ -34,8 +36,10 @@ Route::get('Rol',RolesComponent::class)->name('admin.rol');
 Route::get('Users',UserComponent::class)->name('admin.users');
 Route::get('Orders/create',CreateOrders::class)->name('admin.ordercreate');
 Route::get('Orders',ShowOrders::class)->name('admin.ordershow');
-Route::get('/Imprimir',[ImprimirController::class, 'index'])->name('admin.imprimir');
-Route::get('/Imprimir/download',[ImprimirController::class, 'pdf'])->name('admin.imprimir2');
+
+Route::get('/Imprimir/{DetVentas}/detalle',[ImprimirController::class, 'index'])->name('admin.imprimir');
+Route::get('/ticket/{DetVentas}/ticket',[ImprimirController::class, 'ticket'])->name('admin.ticket');
+Route::get('/Imprimir/{Imprimir}/download',[ImprimirController::class, 'pdf'])->name('admin.imprimir2');
 
 Route::get('/Kardex', ShowKardex::class)->name('Kardex.index');
 Route::get('/Clientes', SearchUsers::class)->name('cliente.index');
@@ -43,3 +47,6 @@ Route::get('/Clientes', SearchUsers::class)->name('cliente.index');
 Route::get('/venta', Viewventa::class)->name('venta.index');
  Route::get('/venta/nueva', Showventas::class)->name('createventa.index'); 
  Route::get('/venta/{ventas}/detalle', Detventa::class)->name('detventa.index'); 
+
+ Route::get('/Reportes', ReportesShow::class)->name('reporte.index');
+ Route::get('/ReportesD', ReportesDiario::class)->name('reporte.diario');

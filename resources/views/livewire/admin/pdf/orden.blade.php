@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<title>A simple, clean, and responsive HTML invoice template</title>
+		<title>Boleta</title>
 
 		<!-- Favicon -->
 		<link rel="icon" href="./images/favicon.png" type="image/x-icon" />
@@ -60,8 +60,8 @@
 				vertical-align: top;
 			}
 
-			.invoice-box table tr td:nth-child(2) {
-				text-align: right;
+			.invoice-box table tr td:nth-child(4) {
+				text-align: right; 
 			}
 
 			.invoice-box table tr.top table td {
@@ -71,7 +71,7 @@
 			.invoice-box table tr.top table td.title {
 				font-size: 45px;
 				line-height: 45px;
-				color: #333;
+				color: rgb(211, 3, 3);
 			}
 
 			.invoice-box table tr.information table td {
@@ -79,9 +79,10 @@
 			}
 
 			.invoice-box table tr.heading td {
-				background: #eee;
+				background: rgb(59, 130, 246);
 				border-bottom: 1px solid #ddd;
 				font-weight: bold;
+				color: white;
 			}
 
 			.invoice-box table tr.details td {
@@ -122,17 +123,18 @@
 		<div class="invoice-box">
 			<table>
 				<tr class="top">
-					<td colspan="2">
+					<td colspan="4">
 						<table>
 							<tr>
 								<td class="title">
 									<img src="./images/logo.png" alt="Company logo" style="width: 100%; max-width: 300px" />
 								</td>
-
+								
+								
 								<td>
-									Invoice #: 123<br />
-									Created: January 1, 2015<br />
-									Due: February 1, 2015
+									Invoice #:000{{$venta->id}}<br />
+									Fecha: {{$venta->created_at->format('d/m/Y')}}<br />
+									{{-- Due: February 1, 2015 --}}
 								</td>
 							</tr>
 						</table>
@@ -140,19 +142,27 @@
 				</tr>
 
 				<tr class="information">
-					<td colspan="2">
+					<td colspan="4">
 						<table>
 							<tr>
 								<td>
-									Sparksuite, Inc.<br />
-									12345 Sunny Road<br />
-									Sunnyville, TX 12345
+									Oh Diosas Swimwear<br />
+									12345 Trujillo<br />
+									Cel:99999999
+								</td>
+								<td>
+									
 								</td>
 
 								<td>
-									Acme Corp.<br />
-									John Doe<br />
-									john@example.com
+									
+								</td>
+								
+								<td>
+								{{-- 	Acme Corp.<br /> --}}
+									Cliente:<br>
+									{{$cliente->name}}<br />
+									{{$cliente->email}}
 								</td>
 							</tr>
 						</table>
@@ -161,7 +171,8 @@
 
 				<tr class="heading">
 					<td>Payment Method</td>
-
+					<td>Check #</td>
+					<td>Check #</td>
 					<td>Check #</td>
 				</tr>
 
@@ -171,34 +182,27 @@
 					<td>1000</td>
 				</tr>
 
+				
+
 				<tr class="heading">
-					<td>Item</td>
-
-					<td>Price</td>
+					<td>Producto</td>
+					 <td>Precio</td> 
+					 <td>Cantidad</td> 
+					<td>Subtotal</td>
 				</tr>
 
-				<tr class="item">
-					<td>Website design</td>
-
-					<td>$300.00</td>
-				</tr>
-
-				<tr class="item">
-					<td>Hosting (3 months)</td>
-
-					<td>$75.00</td>
-				</tr>
-
-				<tr class="item last">
-					<td>Domain name (1 year)</td>
-
-					<td>$10.00</td>
-				</tr>
-
+					@foreach ($items as $item)
+					<tr class="item">
+						<td>{{ $item->name}}</td>
+						<td>S/.{{ $item->price}}</td>
+						 <td>{{ $item->qty}}</td> 
+						<td>S/.{{ $item->subtotal}}</td>
+					</tr>			
+					@endforeach
 				<tr class="total">
 					<td></td>
-
-					<td>Total: $385.00</td>
+					<td></td><td></td>
+					<td>Total: S/.{{$DetVentas->total}}</td>
 				</tr>
 			</table>
 		</div>

@@ -7,6 +7,7 @@ use App\Models\Department;
 use App\Models\District;
 use App\Models\City;
 use App\Models\Order;
+use App\Models\Venta;
 use Gloudemans\Shoppingcart\Facades\Cart;
 class CreateOrder extends Component
 {
@@ -70,9 +71,17 @@ class CreateOrder extends Component
 
         $this->validate($rules);
 
+        /* $venta = new Venta();
+
+        $venta->status= '0';
+        $venta->codcliente =auth()->user()->id;
+        $venta->total = Cart::subtotal();
+        $venta->save();  */
+
+
         $order = new Order();
 
-        $order->user_id = auth()->user()->id;
+        $order->user_id = auth()->user()->id; 
         $order->contact = $this->contact;
         $order->phone = $this->phone;
         $order->envio_type = $this->envio_type;
@@ -82,18 +91,18 @@ class CreateOrder extends Component
 
         if ($this->envio_type == 2) {
             $order->shipping_cost = $this->shipping_cost;
-            /* $order->department_id = $this->department_id;
+             $order->department_id = $this->department_id;
             $order->city_id = $this->city_id;
             $order->district_id = $this->district_id;
             $order->address = $this->address;
-            $order->references = $this->references; */
-            $order->envio = json_encode([
+            $order->references = $this->references; 
+          /*   $order->envio = json_encode([
                 'department' => Department::find($this->department_id)->name,
                 'city' => City::find($this->city_id)->name,
                 'district' => City::find($this->district_id)->name,
                 'address' => $this->address,
                 'references' => $this->references
-            ]);
+            ]); */
         }
 
         $order->save();
@@ -103,7 +112,7 @@ class CreateOrder extends Component
         }
 
         Cart::destroy();
-
+     
         return redirect()->route('orders.payment', $order);
     }
 

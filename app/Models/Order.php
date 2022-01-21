@@ -29,7 +29,10 @@ class Order extends Model
         return $this->belongsTo(District::class);
     }
 
-    public function user(){
+     public function user(){
         return $this->belongsTo(User::class);
-    }
+    } 
+    public function Venta(){
+        return $this->belongsTo(Venta::class);
+    } 
 }

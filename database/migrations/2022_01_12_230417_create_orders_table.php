@@ -17,10 +17,12 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
-
+            $table->unsignedBigInteger('venta_id')->nullable();
+            $table->foreign('venta_id')->references('id')->on('ventas');
+            
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-
+            
             $table->string('contact');
 
             $table->string('phone');
