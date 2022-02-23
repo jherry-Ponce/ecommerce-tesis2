@@ -72,11 +72,17 @@
 
     </div>
 
-    <div class="grid grid-cols-2 mb-4 gap-6">
+    <div class="grid grid-cols-3 mb-4 gap-6">
         <div class="w-full">
-            <x-jet-label value="Precio" />
-             <x-jet-input type="number" wire:model="price" step=".01"/>{{-- step define el ingreso de decimales --}}
-             <x-jet-input-error for="price"/>
+            <x-jet-label value="Precio Venta" />
+             <x-jet-input type="number" wire:model="priceV" step=".01"/>{{-- step define el ingreso de decimales --}}
+             <x-jet-input-error for="priceV"/>
+        </div>
+
+        <div class="w-full">
+            <x-jet-label value="Costo" />
+             <x-jet-input type="number" wire:model="priceC" step=".01"/>{{-- step define el ingreso de decimales --}}
+             <x-jet-input-error for="priceC"/>
         </div>
 
         <div>

@@ -17,7 +17,7 @@ class ImprimirController extends Controller
        
      /*    $order=DetVentas::find($DetVentas);*/
         $venta=Venta::find($DetVentas->id);
-   
+       /*  dd($DetVentas->id); */
         $cliente=User::find($venta->codcliente);
         
          $items = json_decode($DetVentas->content);  
@@ -28,6 +28,23 @@ class ImprimirController extends Controller
         return $pdf->stream();
         
     }
+
+    public function index2(Order $DetVentas){
+   
+  
+        /*    $order=DetVentas::find($DetVentas);*/
+           $venta=Venta::where('id',$DetVentas->venta_id)->first();
+            
+           
+           
+            $items = json_decode($DetVentas->content);  
+            
+            
+           $pdf = PDF::loadView('livewire.admin.pdf.orden', ['items'=>$items, 'DetVentas'=>$DetVentas,'venta'=>$venta , 'cliente'=>$cliente] );
+   
+           return $pdf->stream();
+           
+       }
     public function ticket(DetVentas $DetVentas){
    
        

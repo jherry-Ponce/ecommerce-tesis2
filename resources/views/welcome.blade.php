@@ -15,7 +15,7 @@
                 
                     @endforeach 
                 </div>
-                <button aria-label="Previous" class="glider-prev " style="left: 23px; border-radius: 9999px; background-color: rgb(243 244 246 / var(--tw-bg-opacity)); --tw-text-opacity: 1;
+                <button aria-label="Previous" class="glider-prev rounded-full bg-white" style="left: 23px; border-radius: 9999px; background-color: rgb(243 244 246 / var(--tw-bg-opacity)); --tw-text-opacity: 1;
                 color: rgb(37 99 235 / var(--tw-text-opacity));">«</button>
                 <button aria-label="Next" class="glider-next " style="right: 23px; border-radius: 9999px; background-color: rgb(243 244 246 / var(--tw-bg-opacity)); --tw-text-opacity: 1;
                 color: rgb(37 99 235 / var(--tw-text-opacity))">»</button>
@@ -27,24 +27,28 @@
 
         <div    class="container py-8">
             @foreach ($categories as $category) 
-                @if($category != null)
-                    
+                
+              
                     <div class=" mb-6">
-                        <div class="flex items-center mb-2">
-                            <h1 class="text-lg uppercase font-semibold text-gray-700">
-                                {{ $category->name }}
-                            </h1>
+                        @if(sizeof($category->products) ) 
+                            <div class="flex items-center mb-2">
+                                <h1 class="text-lg uppercase font-semibold text-gray-700">
+                                    {{ $category->name }}
+                                </h1>
 
-                            <a href="{{route('categories.show',$category)}}" class="text-blue-500 hover:text-blue-400 hover:underline ml-2 font-semibold">Ver más</a>
-                        </div>
+                                <a href="{{route('categories.show',$category)}}" class="text-blue-500 hover:text-blue-400 hover:underline ml-2 font-semibold">Ver más</a>
+                            </div>
 
-                        {{-- llama al componente de clase y le envia como dato category este lo recibira en el controlador de la clase --}}
-                        @livewire('category-products', ['category' => $category])
+                            {{-- llama al componente de clase y le envia como dato category este lo recibira en el controlador de la clase --}}
+                            @livewire('category-products', ['category' => $category])
+                         @endif
+                     
                     </div>
-                @endif
+               
                
 
             @endforeach
+            {{-- {{dd($category->products )}} --}}
         </div>
 
 

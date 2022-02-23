@@ -14,13 +14,14 @@
         <x-table-responsive >
 
                     <div class="px-6 py-4 ">
-                        <x-jet-input  type="text" wire:model="search" class="w-full bg-gray-100" placeholder="Ingrese el producto a buscar"/>
+                        <x-jet-input  type="text" {{-- wire:click='cha' --}} wire:model="search" class="w-full bg-gray-100" placeholder="Ingrese el producto a buscar"/>
                     </div>
                     @if ($products->count())
                                             
                          <table class="w-1/4 md:w-full table-auto">
                             <thead>
                                 <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                    <th class="py-3 px-6 text-left">id</th>
                                     <th class="py-3 px-6 text-left">Nombre</th>
                                     <th class="py-3 pxborder-4 border-light-blue-500 border-opacity-25-6 text-left">Categoria</th>
                                     <th class="py-3 px-6 text-center">Precio</th>
@@ -35,7 +36,15 @@
                                         <td class="py-3 px-6 text-left whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="mr-2">
-                                                    <img class="w-6 h-6 rounded-full object-cover" src="/storage/{{$product->images->first()->url }}"/>
+                                                  {{--   <img class="w-6 h-6 rounded-full object-cover" src="/storage/{{$product->images->first()->url }}"/> --}}
+                                                </div>
+                                                <span class="font-medium">{{($product->id)}}</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-left whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="mr-2">
+                                                  {{--   <img class="w-6 h-6 rounded-full object-cover" src="/storage/{{$product->images->first()->url }}"/> --}}
                                                 </div>
                                                 <span class="font-medium">{{Str::limit($product->name, 20)}}</span>
                                             </div>
@@ -51,7 +60,7 @@
 
                                         <td class="py-3 px-6 text-center">
                                             <div class="flex items-center justify-center">
-                                            S/.{{$product->price}}
+                                            S/.{{$product->priceV}}
                                             </div>
                                         </td>
 
@@ -96,7 +105,19 @@
                             @endforeach
                             </tbody>
                         </table> 
-
+                       @if ($search !=null)
+                        <div>
+                            Tiempo empleado para busqueda: <strong>  {{$times}}</strong> 
+                               
+                        </div>
+                       @else
+                       <div>
+                        Tiempo empleado para cargar esta pagina: <strong>  {{$times}}</strong> 
+                    </div> 
+                       @endif
+                       
+                       
+                            
                     @else
                         <div class="py-6 px-4">
                             No se encuentran datos coincidentes

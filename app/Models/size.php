@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class size extends Model
 {
     use HasFactory;
-    protected $fillable =['name'];
+    protected $fillable =['name','product_id'];
 
     //relacion uno a muchos inversa
     public function product(){
@@ -16,7 +16,8 @@ class size extends Model
     }
 
      //relacion muchos a muchos 
+     //relacion muchos a muchos 
      public function colors(){
-        return $this->belongsToMany(Color::class)->withPivot('quantity');
+        return $this->belongsToMany(Color::class)->withPivot('quantity','id');
     }
 }

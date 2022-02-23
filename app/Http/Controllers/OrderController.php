@@ -51,15 +51,17 @@ class OrderController extends Controller
         $this->authorize('author', $order);
         $this->authorize('payment',$order);
 
+
         $payment_id= $request->get('payment_id');
+      
        
         $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id". "?access_token=APP_USR-6948680474029470-011301-69b8e677a1312751aceade34c372c1a0-1055967631");
       
         $response=json_decode($response);
-
+        
         $status=$response->status;
        
-        if ($status='aproved') {
+        if ($status =='approved') {
 
             $venta = new Venta();
 

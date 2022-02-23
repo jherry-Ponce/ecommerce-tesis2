@@ -10,15 +10,15 @@
         
      <div class="container flex-1 flex-wrap mt-12 md:mt-0 pb-24 md:pb-5 ">      
  
-        <div class="grid grid-cols-4 justify-items-center content-center mt-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 justify-items-center content-center gap-6 mt-4">
 
             <div>
-                <x-jet-input type="date" wire:model="inicial" />
+                <x-jet-input type="date"  wire:model.defer="inicial" />
                   <x-jet-input-error for="inicial"/>
             </div>
 
             <div>
-                <x-jet-input type="date"  wire:model="final" />
+                <x-jet-input type="date"  wire:model.defer="final" />
                   <x-jet-input-error for="final"/>
             </div>
 
@@ -55,7 +55,7 @@
                                      <tr class=" hover:bg-gray-100">
                                          <td class="py-3 px-6 text-left whitespace-nowrap">
                                              <div class="flex items-center">
-                                                <span class="font-medium"> {{($dato->id)}} </span>
+                                                <span class="font-medium">  B00.{{($dato->id)}} </span>
                                              </div>
                                          </td>
                                          <td class="py-3 px-6 text-left">
@@ -112,20 +112,42 @@
                               @endforeach 
                              </tbody>
                          </table> 
- 
+                         <x-button-dinamic value="Imprimir" class="printbutton"  >
+                            Imprimir
+                        </x-button-dinamic>
+                        
+                      
+                        <script>
+                             document.querySelectorAll('.printbutton').forEach(function(element) {
+                                    element.addEventListener('click', function() {
+                                        print();
+                                    });
+                                });
+                        </script>
+                       
+                       
+                        <div class="mt-0">
+                            <div class=" mt-0 bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                                <h5 class="font-bold uppercase text-gray-600">Reporte por fechas: entre {{$inicial}}  -  {{$final}}</h5>
+                            </div>
+
+                            <canvas id="chartjs-1" class="chartjs" width="300px" height="300px">
+                               
+                            </canvas>
+                           
+                           <x-reportes  :ventas="$ventas"    />
+                        </div>
+
                      @else
                          <div class="py-6 px-4">
                              No se encuentran datos coincidentes
                          </div>
                      @endif 
  
-                   {{--   @if ($products->hasPages())
-                         <div class="px-6 py-4  ">
-                         {{$products->links()}} 
-                         </div>
-                     @endif  --}}
+                
                     
          </x-table-responsive>  
      </div>     
  </div>
+ 
 </div>

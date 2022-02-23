@@ -12,6 +12,7 @@ use App\Models\Product;
 use App\Models\Venta;
 use Livewire\WithPagination;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 class Showventas extends Component
 {
@@ -146,25 +147,35 @@ class Showventas extends Component
 
         $venta = new Venta();
 
-        $venta->status= '1';
+        $venta->status= '0';
         $venta->tipo= '2';
         $venta->codcliente = $this->dato;
         $venta->total = Cart::instance( 'ventas')-> subtotal();
         $venta->save(); 
       
 
-        /* foreach ( Cart::content() as $key ) {
-            DB::table('detalleventa')->insert(
-                [  
-                    'precio' => $key->price,
-                    'cantidad'=>$key->qty,
-                    'venta_id'=>$venta->id,
-                    'products_id'=> $key->id,
-                    
-                ]
-               
-                ); discount($key);
-        }; */
+
+        /* crear documento */
+        DB::table('documento')->insert([
+            'user_id'=> Auth::user()->id,
+            'empresa_id'=>1,
+            'venta_id'=>$venta->id,
+            'version_UBL'=>'2.1',
+            'tipo_factura'=>'0101',
+            'tipo_documento'=>'03',  
+            'forma_pago'=>'contado',
+            'serie'=>'B00'.$venta->id,
+            'correlativo'=>1,
+            'fecha_emision'=>'2021-01-27T00:00:00-05:00',
+            'monto_operaciones_gravadas'=>$venta->total,
+            'monto_IGV'=>'18',
+            'monto_IGV_gratuitas'=>'18',
+            'total_impuestos'=>$venta->total*0.18,
+            'valor_venta'=>$venta->total,
+            'sub_total'=>$venta->total-$venta->total*0.18,
+            'monto_total'=>$venta->total,
+        ]);
+
 
         $order= new DetVentas();
         $order->total = Cart::instance( 'ventas')-> subtotal();

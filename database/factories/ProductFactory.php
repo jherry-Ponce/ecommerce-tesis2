@@ -34,9 +34,11 @@ class ProductFactory extends Factory
         //se condiciona para saber si el producto a regiustarr necesita que la cantidad vala en la tabla colo_product o a product
         if($subcategory->color){
             $quantity=null;
+            $qtymin=null;
         }
         else{
             $quantity=15;
+            $qtymin=5;
         }
 
         return [
@@ -48,6 +50,7 @@ class ProductFactory extends Factory
             'subcategory_id'=> $subcategory->id,
             'brand_id' =>  $brand->id,
             'quantity'=>$quantity,
+            'cantmin'=>$qtymin,
             'status'=>2,
         ];
     }

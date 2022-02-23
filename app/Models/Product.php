@@ -42,10 +42,10 @@ class Product extends Model
 
     //relacion muchos a muchos 
     public function colors(){
-        return $this->belongsToMany(Color::class)->withPivot('quantity');
+        return $this->belongsToMany(Color::class)->withPivot('quantity','id');
     }
 
-    //relacion uno a muchos inversa
+    //relacion uno a muchos 
     public function sizes(){
         return $this->hasMany(size::class);
     }
@@ -61,9 +61,9 @@ class Product extends Model
     }
 
     //relacion muchos a muchos 
-    public function pedidos(){
+  /*   public function pedidos(){
         return $this->belongsToMany(Pedido::class);
-    }
+    } */
 
 
   /*   public function ventas(){

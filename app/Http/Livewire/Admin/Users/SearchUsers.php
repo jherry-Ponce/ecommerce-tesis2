@@ -67,6 +67,7 @@ class SearchUsers extends Component
 
     public function render()
     {
-        return view('livewire.admin.users.search-users')->layout('layouts.admin');
+        $rol=User::all();
+        return view('livewire.admin.users.search-users',compact('rol'))->layout('layouts.admin');
     }
 }

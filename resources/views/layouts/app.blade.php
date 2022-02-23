@@ -4,8 +4,8 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="csrf-token" content="{{ csrf_token() }}">
-   <title>{{config('app.name', 'Laravel')}}</title>
-   @notifyCss
+   <title>{{config('app.name', 'Oh! Diosas')}}</title>
+{{--    @notifyCss --}}
    <!-- Fonts -->
    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         
@@ -36,24 +36,25 @@
   
  </head>
 
- <body class="font-sans antialiased">
+ <body class="font-sans antialiased  ">
    <x-jet-banner />
-  <div class="min-h-screen bg-gray-100">
+ {{--  <div class="min-h-screen bg-gray-100"> --}}
     @livewire('navigation')  
        <!-- Page Content -->
-       <main>
+       <main class=" min-h-screen relative">
         {{ $slot }}
   
     </main>
-  </div> 
+      
+    <x-footer />
+ {{--  </div>  --}}
 
- 
-  @stack('modals')
+
  
   @livewireScripts
   
-  @notifyJs
-  <x:notify-messages />
+{{--   @notifyJs
+  <x:notify-messages /> --}}
 
 {{-- este scrip ayuda a abrir y cerra el menu de categorias --}}
   <script>
@@ -87,7 +88,8 @@
   vez halla cargado todo lo de html  --}}
   @stack('script')
   @stack('sli')
-
+ 
+  @stack('modals')
 
  </body>
  </html>

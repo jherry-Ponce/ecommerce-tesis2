@@ -101,7 +101,7 @@
                                             
                                         </h1>
 
-                                        <p class="font-semibold text-gray-700"> S/ {{$product->price}}</p>
+                                        <p class="font-semibold text-gray-700"> S/ {{$product->priceV}}</p>
 
                                     </div>
                                     

@@ -14,7 +14,7 @@ class CreateProduct extends Component
 {
     public $categories, $subcategories=[];
     public $category_id="",$subcategory_id="";
-    public $name,$slug,$description,$price,$quantity ;
+    public $name,$slug,$description,$priceV,$quantity,$priceC ;
 
     protected $rules=[
         'category_id' => 'required',
@@ -22,7 +22,8 @@ class CreateProduct extends Component
         'name' => 'required',
         'slug' => 'required|unique:products',
         'description' => 'required',
-        'price' => 'required'
+        'priceV' => 'required',
+        'priceC' => 'required'
     ];
 
     public function mount(){
@@ -62,7 +63,8 @@ class CreateProduct extends Component
         $product->description=$this->description;
         $product->subcategory_id=$this->subcategory_id;
         $product->brand_id='1';
-        $product->price=$this->price;
+        $product->priceV=$this->priceV;
+        $product->priceC=$this->priceC;
         if ($this->subcategory_id) {
             if (!$this->subcategory->color && !$this->subcategory->size) {
                 $product->quantity=$this->quantity;

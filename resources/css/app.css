@@ -6,3 +6,4 @@ para que esta clase importa pase al archivo ubicado en public/css/app.css que de
 @import 'container.css';
 @import 'nav.css';
 @import 'form.css';
+@import 'empresa.css';

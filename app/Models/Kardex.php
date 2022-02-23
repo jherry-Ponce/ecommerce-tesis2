@@ -20,8 +20,8 @@ class Kardex extends Model
     }
 
     //relacion uno a uno
-    public function Products(){
+/*     public function Products(){
         return $this->belongsTo(Product::class);
-    }
+    } */
 
 }

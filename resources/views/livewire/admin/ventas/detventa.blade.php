@@ -99,9 +99,15 @@
 
                 <div class="bg-white rounded-lg shadow-lg p-6 flex justify-between items-center">
 
+                  @if ($ventas->tipo == 2)
                     <a href="{{route("admin.imprimir",$detVentas)}}" target="_blank"> <x-button-dinamic >
-                        ver Boleta
+                        ver Boletas
                     </x-button-dinamic> </a>
+                  @else
+                    <a href="{{route("admin.imprimirO",$detVentas)}}" target="_blank"> <x-button-dinamic >
+                        ver Boletaa
+                    </x-button-dinamic> </a>
+                  @endif  
         
                    <a href="{{route("admin.ticket",$detVentas)}} " target="_blank"> <x-button-dinamic>
                         ver ticket

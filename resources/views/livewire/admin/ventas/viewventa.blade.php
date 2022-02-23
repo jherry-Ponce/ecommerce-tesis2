@@ -99,6 +99,13 @@
                                     </span>
     
                                 </a>
+                                <div class="container flex">
+                                    <x-jet-danger-button
+                                    wire:click="$emit('deleteColorSize', {{ $ventas }})">
+                                    Enviar a sunat
+                                </x-jet-danger-button>
+                                </div>
+                               
                             </li>
                         @endforeach
                     </ul>
@@ -123,3 +130,33 @@
     
  </div>     
 </div>
+
+@push('script')
+    <script>
+        Livewire.on('deleteColorSize', ventas =>{
+
+            Swal.fire({
+            title: 'Estas seguro de enviara sunat?',
+            text: "No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, enviar!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                Livewire.emit('factura',ventas);
+                Swal.fire(
+                'Factura Enviada!',
+                'Su factura a sido enviada.',
+                'Hecho'
+                )
+            }
+            })
+
+
+
+        })
+
+    </script>
+@endpush

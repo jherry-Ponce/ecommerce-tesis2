@@ -169,18 +169,7 @@
 					</td>
 				</tr>
 
-				<tr class="heading">
-					<td>Payment Method</td>
-					<td>Check #</td>
-					<td>Check #</td>
-					<td>Check #</td>
-				</tr>
-
-				<tr class="details">
-					<td>Check</td>
-
-					<td>1000</td>
-				</tr>
+				
 
 				
 

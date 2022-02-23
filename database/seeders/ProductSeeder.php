@@ -89,8 +89,8 @@ class ProductSeeder extends Seeder
                 'InventarioIni'=>$product->quantity,
                 'InventarioFinal'=>$product->quantity,
                 'idProduct'=>$product->id,
-                'idAlmacen'=>'1',
-                'idMovimiento'=>'2'
+                /* 'idAlmacen'=>'1',
+                'idMovimiento'=>'2' */
             ]);
             Image::factory(4)->create([
 

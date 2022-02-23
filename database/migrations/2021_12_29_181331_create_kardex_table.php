@@ -25,13 +25,13 @@ class CreateKardexTable extends Migration
 
              
             $table->unsignedBigInteger('idProduct');
-            $table->foreign('idProduct')->references('id')->on('products');
+            $table->foreign('idProduct')->references('id')->on('products')->onDelete('cascade');
 
-            $table->unsignedBigInteger('idAlmacen');
+            /* $table->unsignedBigInteger('idAlmacen');
             $table->foreign('idAlmacen')->references('id')->on('stocks');
 
             $table->unsignedBigInteger('idMovimiento');
-            $table->foreign('idMovimiento')->references('id')->on('tipo_movimientos');
+            $table->foreign('idMovimiento')->references('id')->on('tipo_movimientos'); */
 
             $table->timestamps();
         });
